@@ -1,6 +1,10 @@
 # My React Template
 
-- [Getting Started with Create React App] (#getting-started-with-create-react-app)
+- [Getting Started with Create React App](#getting-started-with-create-react-app)
+  - [Available Scripts](#available-scripts)
+  - [Learn More](#learn-more)
+- [Plop Template Usage](#plop-template-usage)
+- [Typescript Declaration](#typescript-declaration)
 
 ## Getting Started with Create React App
 
@@ -72,3 +76,43 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Plop Template Usage
+
+- ### Plop Getting Started
+
+Refer the official website [https://plopjs.com/documentation/#getting-started](https://plopjs.com/documentation/#getting-started)
+
+- #### Install Plop `npm install --save-dev plop` or `yarn add -D plop`
+
+  After installing the Plop in the project, in the package.json file update the scripts as follows:
+
+  ```json
+    "scripts": {
+    ...
+    "generate": "plop",
+    ...
+  },
+  ```
+
+  To generate the template on the component folder type following command in the terminal in root location of the project
+
+  ```sh
+  npm run generate
+  ```
+
+  or
+
+  ```sh
+  yarn run generate
+  ```
+
+  > or you can also generate as _`npm run generate <file-type> <component-name >`_
+
+- #### Modify Generate Template
+  > In the **_plopfile.js_** modify the required file extension to be generated.
+  > In the plop-template/component folder make change to the template if required.
+
+## Typescript Declaration
+
+> Basic declaration is given in the declarations.d.ts for react and css
