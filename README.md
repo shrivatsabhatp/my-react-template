@@ -5,6 +5,9 @@
   - [Learn More](#learn-more)
 - [Plop Template Usage](#plop-template-usage)
 - [Typescript Declaration](#typescript-declaration)
+- [React Modal](#react-modal)
+- [Story Book](#story-book)
+- [Components](#components)
 
 ## Getting Started with Create React App
 
@@ -116,3 +119,23 @@ Refer the official website [https://plopjs.com/documentation/#getting-started](h
 ## Typescript Declaration
 
 > Basic declaration is given in the declarations.d.ts for react and css
+
+## React Modal
+
+Portals provide a first-class way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+A typical use case for portals is when a parent component has an overflow: hidden or z-index style, but you need the child to visually “break out” of its container. For example, dialogs hovercards, and tooltips.
+
+## Story Book
+
+Install the story book using the following the command:
+
+```sh
+npx sb init
+```
+
+> For more Info go to [https://storybook.js.org/](https://storybook.js.org/docs/react/get-started/introduction)
+
+## Components
+
+- [Loader]()

@@ -1,4 +1,4 @@
-const destinationPath = "src/components/{{pascalCase name}}/";
+const defaultDestinationPath = "src/components/{{pascalCase name}}/";
 
 const styleFileType = "css";
 
@@ -11,7 +11,7 @@ const requireField = (fieldName) => {
   };
 };
 
-const typeScriptTemplate = () => {
+const typeScriptTemplate = (destinationPath) => {
   return [
     {
       type: "add",
@@ -41,7 +41,7 @@ const typeScriptTemplate = () => {
   ];
 };
 
-const javaScriptTemplate = () => {
+const javaScriptTemplate = (destinationPath) => {
   return [
     {
       type: "add",
@@ -71,33 +71,169 @@ const javaScriptTemplate = () => {
   ];
 };
 
+const listComponents = [
+  {
+    name: "index file",
+    value: "index",
+  },
+  {
+    name: "component file",
+    value: "component",
+  },
+  {
+    name: "style file ",
+    value: "style",
+  },
+  {
+    name: "storybook file",
+    value: "stories",
+  },
+  {
+    name: "testing file",
+    value: "test",
+  },
+];
+
 module.exports = function (plop) {
   // create your generators here
   plop.setGenerator("basics", {
-    description: "This is a skeleton plop-file",
+    description: "Generate a new React component",
     prompts: [
       {
-        type: "boolean",
-        name: "type",
-        message: "Type of file extension (js/tsx)?",
-        validate: requireField("type"),
+        type: "list",
+        name: "action",
+        message: "Select action",
+        default: "create",
+        choices: () => [
+          {
+            name: "Create component folder",
+            value: "create",
+          },
+          {
+            name: "Add separate component",
+            value: "add",
+          },
+        ],
+      },
+      {
+        type: "list",
+        name: "component",
+        message: "Select component",
+        when: (answer) => answer.action === "add",
+        choices: listComponents,
       },
       {
         type: "input",
         name: "name",
-        message: "Name of your component?",
-        validate: requireField("name"),
+        message: "Component name:",
+        when: (answer) => answer.component !== "index",
+        validate: (value) => {
+          if (!value) {
+            return "Component name is required";
+          }
+          return true;
+        },
+      },
+      {
+        type: "list",
+        name: "type",
+        message: "Select type of file extension for component",
+        default: "js",
+        choices: () => [
+          { name: "JavaScript(.js)", value: "js" },
+          { name: "TypeScript(.tsx)", value: "tsx" },
+          // { name: "JSX(.jsx)", value: "jsx" },
+        ],
+      },
+      {
+        type: "confirm",
+        name: "check",
+        message: "Do you want change generated file location?",
+        default: false,
+      },
+      {
+        type: "input",
+        name: "path",
+        message: "Enter the path (base: src/components/):",
+        when: (answer) => answer.check === true,
+        validate: (value) => {
+          if (!value) {
+            return "Path name is required";
+          }
+          return true;
+        },
       },
     ],
     actions: function (data) {
-      let action = [];
-
-      if (data.type === "tsx") {
-        action = typeScriptTemplate();
-      } else {
-        action = javaScriptTemplate();
-      }
-      return action;
+      console.log(data);
+      return data.action === "add"
+        ? AddTheTemplate(data)
+        : CreateNewTemplate(data);
     },
   });
+};
+
+const CreateNewTemplate = (data) => {
+  let path = defaultDestinationPath;
+  if (data.check) {
+    path = "src/components/" + data.path + "/{{pascalCase name}}/";
+  }
+
+  if (data.type === "tsx") {
+    return typeScriptTemplate(path);
+  } else {
+    return javaScriptTemplate(path);
+  }
+};
+
+const AddTheTemplate = (data) => {
+  let path = defaultDestinationPath;
+  let folder = data.type === "tsx" ? "typescript" : "javascript";
+
+  if (data.check) {
+    path = "src/components/" + data.path;
+  }
+
+  if (data.component === "component") {
+    return [
+      {
+        type: "add",
+        path: path + "/{{pascalCase name}}/{{pascalCase name}}." + data.type,
+        templateFile: "plop-templates/" + folder + "/component.hbs",
+      },
+    ];
+  } else if (data.component === "style") {
+    return [
+      {
+        type: "add",
+        path: path + "{{pascalCase name}}." + styleFileType,
+        templateFile: "plop-templates/" + folder + "/component.module.hbs",
+      },
+    ];
+  } else if (data.component === "test") {
+    return [
+      {
+        type: "add",
+        path: path + "{{pascalCase name}}.test." + data.type,
+        templateFile: "plop-templates/" + folder + "/component.test.hbs",
+      },
+    ];
+  } else if (data.component === "stories") {
+    return [
+      {
+        type: "add",
+        path: path + "{{pascalCase name}}." + data.type,
+        templateFile: "plop-templates/" + folder + "/component.stories.hbs",
+      },
+    ];
+  } else {
+    const type = data.type === "tsx" ? "ts" : "js";
+    return [
+      {
+        type: "add",
+        path: path + "/index." + type,
+        templateFile: "plop-templates/" + folder + "/index.hbs",
+      },
+    ];
+  }
 };
