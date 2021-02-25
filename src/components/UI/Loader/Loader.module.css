@@ -172,3 +172,31 @@
     stroke-dashoffset: -269.7405090332031px;
   }
 }
+
+/*  */
+.Loader5 {
+  width: 40px;
+  height: 40px;
+  animation: chase 0.7s infinite linear both;
+}
+
+.Loader5 .svg {
+  stroke-dasharray: 269.7405090332031px;
+  stroke-dashoffset: 0;
+  animation: heartBeat 3.5s linear infinite;
+  transform: rotate(-90deg);
+}
+
+.circle {
+  stroke-width: 5;
+  stroke: #fff;
+}
+
+@keyframes heartBeat {
+  50% {
+    stroke-dashoffset: 269.7405090332031px;
+  }
+  50.01% {
+    stroke-dashoffset: -269.7405090332031px;
+  }
+}

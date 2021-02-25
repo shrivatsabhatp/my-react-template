@@ -44,6 +44,26 @@ const Loader = () => {
           />
         </svg>
       </div>
+
+      {/* Loader Type 5 */}
+      <div className={styles.Loader5}>
+        <svg
+          className={styles.svg}
+          viewBox="0 0 90 90"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle
+            className={styles.circle}
+            fill="none"
+            strokeWidth="4"
+            strokeLinecap="round"
+            stroke="red"
+            cx="45"
+            cy="45"
+            r="40"
+          />
+        </svg>
+      </div>
     </div>
   );
 };

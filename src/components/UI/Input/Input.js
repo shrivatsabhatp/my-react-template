@@ -12,6 +12,9 @@ const Input = (props) => {
     case "textarea":
       inputElement = <textarea className={styles.InputElement} {...props} />;
       break;
+    case "dropdown":
+      inputElement = <input className={styles.InputElement} {...props} />;
+      break;
     default:
       inputElement = <input className={styles.InputElement} {...props} />;
       break;

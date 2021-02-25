@@ -1,0 +1,16 @@
+.img {
+  margin-right: 0.5em;
+}
+
+.roundedImg {
+  border-radius: 50%;
+}
+
+.option {
+  padding-left: 0.8rem !important;
+}
+
+.option:hover {
+  background-color: rgba(0, 0, 0, 0.01);
+  box-shadow: 0 02px 4px rgba(0, 0, 0, 0.05);
+}
