@@ -1,12 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import styles from './Modal.module.css';
+import styles from "./Modal.module.css";
 
-const Modal = ({...props}) => {
-return (
-<div className={styles.Modal }></div>
-);
+const Modal = ({ ...props }) => {
+  return <div className={styles.Modal}></div>;
 };
-
 
 export default Modal;
