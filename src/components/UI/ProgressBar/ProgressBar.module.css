@@ -1,3 +1,23 @@
-.ProgressBar {
+:root {
+  --container-width: 100%;
+  --container-height: 0.5em;
+  --width: 90px;
+  --height: 0.9em;
+}
 
+.ProgressBarContainer {
+  width: 100%;
+  height: var(--height);
+  border-radius: var(--height);
+  border-top: 01em solid transparent;
+  background-color: teal;
+}
+
+.ProgressBar {
+  display: block;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--height);
+
+  background-color: #00ffff33;
 }

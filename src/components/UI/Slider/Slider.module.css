@@ -1,0 +1,30 @@
+:root {
+  --thumb-shadow: 0 3px 8px rgba(0, 0, 0, 0.15), 0 1px 1px rgba(0, 0, 0, 0.16),
+    0 3px 1px rgba(0, 0, 0, 0.1);
+}
+
+progress {
+  outline: none;
+}
+
+progress::-webkit-progress-value {
+  background-color: #007aff;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #b6b6b6;
+  border-radius: 1.5px;
+  overflow: hidden;
+}
+
+input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 28px;
+  width: 28px;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 2;
+  box-shadow: var(--thumb-shadow);
+}
