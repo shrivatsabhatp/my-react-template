@@ -30,6 +30,10 @@ export const ProgressBar_Default = () => {
       <ProgressBar type={"two"} percentage={progress} />
       <br />
       <ProgressBar type={"three"} percentage={progress} />
+      <br />
+      <ProgressBar type={"four"} percentage={progress} />
+      <br />
+      <ProgressBar type={"five"} percentage={progress} />
     </div>
   );
 };
