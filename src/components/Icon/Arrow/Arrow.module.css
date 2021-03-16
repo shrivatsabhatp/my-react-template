@@ -1,0 +1,27 @@
+.Arrow {
+  --size: 0.5em;
+  --color: red;
+  position: relative;
+  width: calc(var(--size) * 4);
+  height: calc(var(--size) * 4);
+}
+
+.Arrow::before,
+.Arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--size) * 3);
+  height: var(--size);
+  background: var(--color);
+  border-radius: 50px;
+}
+
+.Arrow::before {
+  transform: translate(-50%, 20%) rotate(-45deg);
+}
+
+.Arrow::after {
+  transform: translate(-50%, -120%) rotate(45deg);
+}

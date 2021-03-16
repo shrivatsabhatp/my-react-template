@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "../Input/Input";
+import Input from "../Input/Type1/Input";
 
 import styles from "./Form.module.css";
 
@@ -24,6 +24,7 @@ const Form = ({ ...props }) => {
       },
     },
   });
+
   return (
     <div className={styles.Form}>
       <Input />

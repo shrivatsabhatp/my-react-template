@@ -16,7 +16,9 @@ const Input = (props) => {
       inputElement = <input className={styles.InputElement} {...props} />;
       break;
     default:
-      inputElement = <input className={styles.InputElement} {...props} />;
+      inputElement = (
+        <input className={styles.InputElement} {...props} ref={props.Ref} />
+      );
       break;
   }
   return (

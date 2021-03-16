@@ -1,0 +1,55 @@
+.CardWithFocus {
+  --width: 35px;
+  --height: 35px;
+  --curvature: 0.5rem;
+  width: calc(var(--width) * 2);
+  height: calc(var(--height) * 2);
+  display: grid;
+  place-items: center;
+}
+
+.Card {
+  opacity: 1;
+  width: var(--width);
+  height: var(--height);
+  position: relative;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.Card::before,
+.Card::after {
+  background: rgba(255, 166, 0, 0.678);
+  content: "";
+  position: absolute;
+  border-radius: var(--curvature);
+  top: 0%;
+  left: 0%;
+  z-index: -1;
+  width: var(--width);
+  height: var(--height);
+}
+.Card::after {
+  animation: expand 1.5s ease-in 0s infinite none running;
+}
+.Card::before {
+  animation: expand 1.5s ease-in 0.25s infinite none running;
+}
+
+.Card:focus,
+.Card:hover,
+.Card:active {
+  background: rgb(250, 250, 250);
+}
+
+@keyframes expand {
+  from {
+    background-color: solid;
+    transform: scale(1);
+  }
+  to {
+    background-color: transparent;
+    transform: scale(2);
+  }
+}

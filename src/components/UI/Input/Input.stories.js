@@ -1,4 +1,5 @@
-import Input from "./Input";
+import { useRef, useEffect } from "react";
+import Input, { Input as Input2 } from "./Type1/Input";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -13,6 +14,38 @@ export default {
       ],
     },
   },
+  argTypes: {
+    backgroundColor: { control: "color" },
+  },
 };
 
-export const Input_Default = () => <Input />;
+const Template = (args) => <Input {...args} />;
+const Template2 = (args) => <Input2 {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  placeholder: "Name",
+};
+
+export const Type1_Focused = (args) => {
+  const newRef = useRef(null);
+  useEffect(() => {
+    newRef.current.focus();
+  });
+  return <Input {...args} Ref={newRef} />;
+};
+Type1_Focused.args = { style: { width: "384px" }, placeholder: "Address" };
+
+export const Type2 = Template.bind({});
+Type2.args = {
+  placeholder: "First Name",
+};
+
+export const Type2_Focused = (args) => {
+  const newRef = useRef(null);
+  useEffect(() => {
+    newRef.current.focus();
+  });
+  return <Input {...args} Ref={newRef} />;
+};
+Type2_Focused.args = { placeholder: "Address" };

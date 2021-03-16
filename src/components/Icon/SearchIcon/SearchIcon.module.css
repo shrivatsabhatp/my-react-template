@@ -1,0 +1,41 @@
+.SearchIcon {
+  --color: grey;
+  --size: 0.75em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  transform: rotate(30deg);
+}
+
+.Circle {
+  width: calc(var(--size) * 2);
+  height: calc(var(--size) * 2);
+  border-radius: 50%;
+  background: transparent;
+  position: relative;
+}
+
+.Circle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-75%, -50%);
+  width: calc(var(--size));
+  height: calc(var(--size));
+  border: calc(var(--size) * 0.25) solid var(--color);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.Bar {
+  position: absolute;
+  background: var(--color);
+  border-radius: calc(var(--size) * 0.5);
+  width: calc(var(--size) * 1);
+  height: calc(var(--size) * 0.25);
+  right: -10%;
+}

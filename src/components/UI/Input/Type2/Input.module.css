@@ -1,0 +1,40 @@
+.Input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.InputElement {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  border: 1px solid #757575;
+  background-color: white;
+  border-radius: 0.2rem;
+  font: inherit;
+  font-size: inherit;
+  padding: 6px 10px;
+  box-sizing: border-box;
+  transition: all 0.33s;
+}
+
+.InputElement:focus {
+  box-sizing: border-box;
+  border: solid 1.25px red;
+}
+
+.InputElement::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.InputElement:user-invalid,
+.InputElement:invalid {
+  border: solid 1.25px lightcoral;
+}

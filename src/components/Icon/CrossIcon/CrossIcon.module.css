@@ -1,0 +1,29 @@
+.CrossIcon {
+  --size: 1em;
+  --color: black;
+}
+
+.Cross {
+  position: relative;
+  width: calc(var(--size) * 3);
+  height: calc(var(--size) * 3);
+}
+
+.Cross::before,
+.Cross::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--size) * 3);
+  height: var(--size);
+  background: var(--color);
+}
+
+.Cross::before {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.Cross::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
