@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
-import Input, { Input as Input2 } from "./Type1/Input";
+import Input from "./Type1/Input";
+import Input2 from "./Type2/Input";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
@@ -36,7 +37,7 @@ export const Type1_Focused = (args) => {
 };
 Type1_Focused.args = { style: { width: "384px" }, placeholder: "Address" };
 
-export const Type2 = Template.bind({});
+export const Type2 = Template2.bind({});
 Type2.args = {
   placeholder: "First Name",
 };
@@ -46,6 +47,6 @@ export const Type2_Focused = (args) => {
   useEffect(() => {
     newRef.current.focus();
   });
-  return <Input {...args} Ref={newRef} />;
+  return <Input2 {...args} Ref={newRef} />;
 };
-Type2_Focused.args = { placeholder: "Address" };
+Type2_Focused.args = { placeholder: "Address", label: "Label", type: "text" };

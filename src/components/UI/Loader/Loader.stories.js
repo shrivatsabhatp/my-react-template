@@ -6,7 +6,7 @@ export default {
   component: Loader,
   parameters: {
     backgrounds: {
-      default: "light",
+      default: "dark",
       values: [
         { name: "light", value: "#ffffff" },
         { name: "dark", value: "#333333" },

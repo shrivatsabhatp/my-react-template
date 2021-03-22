@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, useParams, Link, Switch } from "react-router-dom";
 import Pallet from "../components/Pallet/Pallet";
+import ScrollToHome from "../pages/scrollToHome/scrollToHome";
 
 export default function Router() {
   // const { page } = useParams();
@@ -11,7 +12,8 @@ export default function Router() {
       <Link to="/common">common</Link>
       <Link to="/child">child</Link> */}
 
-      <Home />
+      {/* <Home /> */}
+      <ScrollToHome />
       {/* <Switch>
         <Route>
         </Route>

@@ -1,0 +1,66 @@
+.Dialog {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s;
+}
+
+.DialogContainer {
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  background: white;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: pop 0.3s ease-in;
+}
+
+.DialogContainer div {
+  width: 100%;
+  height: 100%;
+}
+
+.DialogContainer .Close {
+  background: gainsboro;
+}
+
+.DialogContainer .close span {
+  position: relative;
+  background-color: red;
+  width: 1rem;
+  height: 1rem;
+}
+.DialogContainer .close span::before {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background: grey;
+}
+.DialogContainer .close span::after {
+  content: "";
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  background: grey;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
